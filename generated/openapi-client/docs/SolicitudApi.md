@@ -27,10 +27,10 @@ import org.openapitools.client.api.SolicitudApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("http://localhost:8080");
 
     SolicitudApi apiInstance = new SolicitudApi(defaultClient);
-    String nombreUsuario = "nombreUsuario_example"; // String | 
+    String nombreUsuario = "anpalenq"; // String | 
     Integer tok = 56; // Integer | 
     try {
       List<Integer> result = apiInstance.solicitudComprobarSolicitudGet(nombreUsuario, tok);
@@ -93,7 +93,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     SolicitudApi apiInstance = new SolicitudApi(defaultClient);
-    String nombreUsuario = "nombreUsuario_example"; // String | 
+    String nombreUsuario = "anpalenq"; // String | 
     try {
       List<Integer> result = apiInstance.solicitudGetSolicitudesUsuarioGet(nombreUsuario);
       System.out.println(result);
@@ -154,7 +154,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     SolicitudApi apiInstance = new SolicitudApi(defaultClient);
-    String nombreUsuario = "nombreUsuario_example"; // String | 
+    String nombreUsuario = "anpalenq"; // String | 
     Solicitud solicitud = new Solicitud(); // Solicitud | 
     try {
       SolicitudResponse result = apiInstance.solicitudSolicitarPost(nombreUsuario, solicitud);

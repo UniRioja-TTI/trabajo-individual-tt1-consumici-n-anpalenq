@@ -1,11 +1,12 @@
-package controlador;
+package com.tt1.trabajo.controlador;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import servicios.GridService;
+import com.tt1.trabajo.servicios.GridService;
+
 import utilidades.client.ApiException;
 
 @Controller

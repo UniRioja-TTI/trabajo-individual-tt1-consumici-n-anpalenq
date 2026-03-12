@@ -25,10 +25,10 @@ import org.openapitools.client.api.ResultadosApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("http://localhost:8080");
 
     ResultadosApi apiInstance = new ResultadosApi(defaultClient);
-    String nombreUsuario = "nombreUsuario_example"; // String | 
+    String nombreUsuario = "anpalenq"; // String | 
     Integer tok = 56; // Integer | 
     try {
       ResultsResponse result = apiInstance.resultadosPost(nombreUsuario, tok);

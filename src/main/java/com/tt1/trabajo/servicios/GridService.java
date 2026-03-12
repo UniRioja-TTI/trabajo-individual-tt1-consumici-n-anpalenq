@@ -1,4 +1,4 @@
-package servicios;
+package com.tt1.trabajo.servicios;
 
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ public class GridService {
         client.setBasePath("http://localhost:8080");
 
         ResultadosApi api = new ResultadosApi(client);
-        ResultsResponse response = api.resultadosPost("ana", tok);
+        ResultsResponse response = api.resultadosPost("anpalenq", tok);
 
         if (response != null && Boolean.TRUE.equals(response.getDone())) {
             return response.getData();
