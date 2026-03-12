@@ -669,9 +669,9 @@ public class ApiClient {
             //Serialize to json string and remove the " enclosing characters
             String jsonStr = JSON.serialize(param);
             return jsonStr.substring(1, jsonStr.length() - 1);
-        } else if (param instanceof Collection) {
+        } else if (param instanceof Collection<?>) {
             StringBuilder b = new StringBuilder();
-            for (Object o : (Collection) param) {
+            for (Object o : (Collection<?>) param) {
                 if (b.length() > 0) {
                     b.append(",");
                 }
@@ -786,7 +786,7 @@ public class ApiClient {
      * @param value The value of the parameter.
      * @return String representation of the parameter
      */
-    public String collectionPathParameterToString(String collectionFormat, Collection value) {
+    public String collectionPathParameterToString(String collectionFormat, Collection<?> value) {
         // create the value based on the collection format
         if ("multi".equals(collectionFormat)) {
             // not valid for path params
@@ -1202,7 +1202,7 @@ public class ApiClient {
      * @return The HTTP call
      * @throws utilidades.client.ApiException If fail to serialize the request body object
      */
-    public Call buildCall(String baseUrl, String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String[] authNames, ApiCallback callback) throws ApiException {
+    public Call buildCall(String baseUrl, String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String[] authNames, ApiCallback<?> callback) throws ApiException {
         Request request = buildRequest(baseUrl, path, method, queryParams, collectionQueryParams, body, headerParams, cookieParams, formParams, authNames, callback);
 
         return httpClient.newCall(request);
@@ -1225,7 +1225,7 @@ public class ApiClient {
      * @return The HTTP request
      * @throws utilidades.client.ApiException If fail to serialize the request body object
      */
-    public Request buildRequest(String baseUrl, String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String[] authNames, ApiCallback callback) throws ApiException {
+    public Request buildRequest(String baseUrl, String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String[] authNames, ApiCallback<?> callback) throws ApiException {
         final String url = buildUrl(baseUrl, path, queryParams, collectionQueryParams);
 
         // prepare HTTP request body
@@ -1428,8 +1428,8 @@ public class ApiClient {
             if (param.getValue() instanceof File) {
                 File file = (File) param.getValue();
                 addPartToMultiPartBuilder(mpBuilder, param.getKey(), file);
-            } else if (param.getValue() instanceof List) {
-                List list = (List) param.getValue();
+            } else if (param.getValue() instanceof List<?>) {
+                List<?> list = (List<?>) param.getValue();
                 for (Object item: list) {
                     if (item instanceof File) {
                         addPartToMultiPartBuilder(mpBuilder, param.getKey(), (File) item);
@@ -1507,8 +1507,8 @@ public class ApiClient {
             public Response intercept(Interceptor.Chain chain) throws IOException {
                 final Request request = chain.request();
                 final Response originalResponse = chain.proceed(request);
-                if (request.tag() instanceof ApiCallback) {
-                    final ApiCallback callback = (ApiCallback) request.tag();
+                if (request.tag() instanceof ApiCallback<?>) {
+                    final ApiCallback<?> callback = (ApiCallback<?>) request.tag();
                     return originalResponse.newBuilder()
                         .body(new ProgressResponseBody(originalResponse.body(), callback))
                         .build();
