@@ -13,68 +13,50 @@
 
 package utilidades.model;
 
-import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import utilidades.client.JSON;
 
 /**
  * SolicitudResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T12:30:21.258644+01:00[Europe/Berlin]", comments = "Generator version: 7.20.0")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T12:30:21.258644+01:00[Europe/Berlin]", comments = "Generator version: 7.20.0")
 public class SolicitudResponse {
   public static final String SERIALIZED_NAME_DONE = "done";
   @SerializedName(SERIALIZED_NAME_DONE)
-  @javax.annotation.Nullable
   private Boolean done;
 
   public static final String SERIALIZED_NAME_TOKEN_SOLICITUD = "tokenSolicitud";
   @SerializedName(SERIALIZED_NAME_TOKEN_SOLICITUD)
-  @javax.annotation.Nullable
   private Integer tokenSolicitud;
 
   public static final String SERIALIZED_NAME_ERROR_MESSAGE = "errorMessage";
   @SerializedName(SERIALIZED_NAME_ERROR_MESSAGE)
-  @javax.annotation.Nullable
   private String errorMessage;
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  @javax.annotation.Nullable
   private Boolean data;
 
   public SolicitudResponse() {
   }
 
-  public SolicitudResponse done(@javax.annotation.Nullable Boolean done) {
+  public SolicitudResponse done(Boolean done) {
     this.done = done;
     return this;
   }
@@ -83,17 +65,16 @@ public class SolicitudResponse {
    * Get done
    * @return done
    */
-  @javax.annotation.Nullable
   public Boolean getDone() {
     return done;
   }
 
-  public void setDone(@javax.annotation.Nullable Boolean done) {
+  public void setDone(Boolean done) {
     this.done = done;
   }
 
 
-  public SolicitudResponse tokenSolicitud(@javax.annotation.Nullable Integer tokenSolicitud) {
+  public SolicitudResponse tokenSolicitud(Integer tokenSolicitud) {
     this.tokenSolicitud = tokenSolicitud;
     return this;
   }
@@ -102,17 +83,16 @@ public class SolicitudResponse {
    * Get tokenSolicitud
    * @return tokenSolicitud
    */
-  @javax.annotation.Nullable
   public Integer getTokenSolicitud() {
     return tokenSolicitud;
   }
 
-  public void setTokenSolicitud(@javax.annotation.Nullable Integer tokenSolicitud) {
+  public void setTokenSolicitud(Integer tokenSolicitud) {
     this.tokenSolicitud = tokenSolicitud;
   }
 
 
-  public SolicitudResponse errorMessage(@javax.annotation.Nullable String errorMessage) {
+  public SolicitudResponse errorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
     return this;
   }
@@ -121,17 +101,16 @@ public class SolicitudResponse {
    * Get errorMessage
    * @return errorMessage
    */
-  @javax.annotation.Nullable
   public String getErrorMessage() {
     return errorMessage;
   }
 
-  public void setErrorMessage(@javax.annotation.Nullable String errorMessage) {
+  public void setErrorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
   }
 
 
-  public SolicitudResponse data(@javax.annotation.Nullable Boolean data) {
+  public SolicitudResponse data(Boolean data) {
     this.data = data;
     return this;
   }
@@ -140,12 +119,11 @@ public class SolicitudResponse {
    * Get data
    * @return data
    */
-  @javax.annotation.Nullable
   public Boolean getData() {
     return data;
   }
 
-  public void setData(@javax.annotation.Nullable Boolean data) {
+  public void setData(Boolean data) {
     this.data = data;
   }
 
@@ -166,20 +144,9 @@ public class SolicitudResponse {
         Objects.equals(this.data, solicitudResponse.data);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(done, tokenSolicitud, errorMessage, data);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
