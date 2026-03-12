@@ -21,8 +21,6 @@ import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.google.gson.JsonElement;
-import io.gsonfire.GsonFireBuilder;
-import io.gsonfire.TypeSelector;
 
 import okio.ByteString;
 
@@ -39,9 +37,7 @@ import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Map;
-import java.util.HashMap;
 
 /*
  * A JSON utility class
@@ -58,14 +54,11 @@ public class JSON {
     private static LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
     private static ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();
 
-    @SuppressWarnings("unchecked")
     public static GsonBuilder createGson() {
-        GsonFireBuilder fireBuilder = new GsonFireBuilder()
-        ;
-        GsonBuilder builder = fireBuilder.createGsonBuilder();
-        return builder;
+        return new GsonBuilder();
     }
 
+    @SuppressWarnings("unused")
     private static String getDiscriminatorValue(JsonElement readElement, String discriminatorField) {
         JsonElement element = readElement.getAsJsonObject().get(discriminatorField);
         if (null == element) {
@@ -81,9 +74,10 @@ public class JSON {
      * @param discriminatorValue The value of the OpenAPI discriminator in the input data.
      * @return The Java class that implements the OpenAPI schema
      */
-    private static Class getClassByDiscriminator(Map classByDiscriminatorValue, String discriminatorValue) {
-        Class clazz = (Class) classByDiscriminatorValue.get(discriminatorValue);
-        if (null == clazz) {
+    @SuppressWarnings("unused")
+    private static Class<?> getClassByDiscriminator(Map<String, Class<?>> classByDiscriminatorValue, String discriminatorValue) {
+        Class<?> clazz = classByDiscriminatorValue.get(discriminatorValue);
+        if (clazz == null) {
             throw new IllegalArgumentException("cannot determine model class of name: <" + discriminatorValue + ">");
         }
         return clazz;
@@ -144,7 +138,7 @@ public class JSON {
      * @param returnType The type to deserialize into
      * @return The deserialized Java object
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("deprecation")
     public static <T> T deserialize(String body, Type returnType) {
         try {
             if (isLenientOnJson) {
@@ -159,7 +153,9 @@ public class JSON {
             // Fallback processing when failed to parse JSON form response body:
             // return the response body string directly for the String return type;
             if (returnType.equals(String.class)) {
-                return (T) body;
+                @SuppressWarnings("unchecked")
+                T result = (T) body;
+                return result;
             } else {
                 throw (e);
             }
@@ -174,7 +170,7 @@ public class JSON {
     * @param returnType  The type to deserialize into
     * @return The deserialized Java object
     */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("deprecation")
     public static <T> T deserialize(InputStream inputStream, Type returnType) throws IOException {
         try (InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
         if (isLenientOnJson) {
