@@ -11,7 +11,7 @@
  */
 
 
-package org.openapitools.client.api;
+package utilidades.api;
 
 import utilidades.client.ApiCallback;
 import utilidades.client.ApiClient;
@@ -19,16 +19,12 @@ import utilidades.client.ApiException;
 import utilidades.client.ApiResponse;
 import utilidades.client.Configuration;
 import utilidades.client.Pair;
-import utilidades.client.ProgressRequestBody;
-import utilidades.client.ProgressResponseBody;
+
 
 import com.google.gson.reflect.TypeToken;
 
-import java.io.IOException;
 
-
-import org.openapitools.client.model.EmailResponse;
-import org.openapitools.client.model.ProblemDetails;
+import utilidades.model.EmailResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -88,7 +84,7 @@ public class EmailApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call emailPostCall(@javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String message, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call emailPostCall(String emailAddress, String message, final ApiCallback<EmailResponse> _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -142,8 +138,7 @@ public class EmailApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call emailPostValidateBeforeCall(@javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String message, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call emailPostValidateBeforeCall(String emailAddress, String message, final ApiCallback<EmailResponse> _callback) throws ApiException {
         return emailPostCall(emailAddress, message, _callback);
 
     }
@@ -163,7 +158,7 @@ public class EmailApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public EmailResponse emailPost(@javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String message) throws ApiException {
+    public EmailResponse emailPost(String emailAddress, String message) throws ApiException {
         ApiResponse<EmailResponse> localVarResp = emailPostWithHttpInfo(emailAddress, message);
         return localVarResp.getData();
     }
@@ -183,7 +178,7 @@ public class EmailApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmailResponse> emailPostWithHttpInfo(@javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String message) throws ApiException {
+    public ApiResponse<EmailResponse> emailPostWithHttpInfo(String emailAddress, String message) throws ApiException {
         okhttp3.Call localVarCall = emailPostValidateBeforeCall(emailAddress, message, null);
         Type localVarReturnType = new TypeToken<EmailResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -205,7 +200,7 @@ public class EmailApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call emailPostAsync(@javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String message, final ApiCallback<EmailResponse> _callback) throws ApiException {
+    public okhttp3.Call emailPostAsync(String emailAddress, String message, final ApiCallback<EmailResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = emailPostValidateBeforeCall(emailAddress, message, _callback);
         Type localVarReturnType = new TypeToken<EmailResponse>(){}.getType();
