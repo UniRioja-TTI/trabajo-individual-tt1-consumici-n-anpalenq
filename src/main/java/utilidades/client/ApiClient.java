@@ -39,7 +39,6 @@ import java.security.SecureRandom;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
 import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -47,13 +46,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import utilidades.client.auth.Authentication;
 import utilidades.client.auth.HttpBasicAuth;
-import utilidades.client.auth.HttpBearerAuth;
 import utilidades.client.auth.ApiKeyAuth;
 
 /**
