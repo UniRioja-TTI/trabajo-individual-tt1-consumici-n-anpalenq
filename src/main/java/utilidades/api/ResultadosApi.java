@@ -11,7 +11,7 @@
  */
 
 
-package org.openapitools.client.api;
+package utilidades.api;
 
 import utilidades.client.ApiCallback;
 import utilidades.client.ApiClient;
@@ -19,16 +19,11 @@ import utilidades.client.ApiException;
 import utilidades.client.ApiResponse;
 import utilidades.client.Configuration;
 import utilidades.client.Pair;
-import utilidades.client.ProgressRequestBody;
-import utilidades.client.ProgressResponseBody;
 
 import com.google.gson.reflect.TypeToken;
 
-import java.io.IOException;
 
-
-import org.openapitools.client.model.ProblemDetails;
-import org.openapitools.client.model.ResultsResponse;
+import utilidades.model.ResultsResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -88,7 +83,7 @@ public class ResultadosApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call resultadosPostCall(@javax.annotation.Nullable String nombreUsuario, @javax.annotation.Nullable Integer tok, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call resultadosPostCall(String nombreUsuario, Integer tok, final ApiCallback<ResultsResponse> _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -142,8 +137,7 @@ public class ResultadosApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call resultadosPostValidateBeforeCall(@javax.annotation.Nullable String nombreUsuario, @javax.annotation.Nullable Integer tok, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call resultadosPostValidateBeforeCall(String nombreUsuario, Integer tok, final ApiCallback<ResultsResponse> _callback) throws ApiException {
         return resultadosPostCall(nombreUsuario, tok, _callback);
 
     }
@@ -163,7 +157,7 @@ public class ResultadosApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ResultsResponse resultadosPost(@javax.annotation.Nullable String nombreUsuario, @javax.annotation.Nullable Integer tok) throws ApiException {
+    public ResultsResponse resultadosPost(String nombreUsuario, Integer tok) throws ApiException {
         ApiResponse<ResultsResponse> localVarResp = resultadosPostWithHttpInfo(nombreUsuario, tok);
         return localVarResp.getData();
     }
@@ -183,7 +177,7 @@ public class ResultadosApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ResultsResponse> resultadosPostWithHttpInfo(@javax.annotation.Nullable String nombreUsuario, @javax.annotation.Nullable Integer tok) throws ApiException {
+    public ApiResponse<ResultsResponse> resultadosPostWithHttpInfo(String nombreUsuario, Integer tok) throws ApiException {
         okhttp3.Call localVarCall = resultadosPostValidateBeforeCall(nombreUsuario, tok, null);
         Type localVarReturnType = new TypeToken<ResultsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -205,7 +199,7 @@ public class ResultadosApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call resultadosPostAsync(@javax.annotation.Nullable String nombreUsuario, @javax.annotation.Nullable Integer tok, final ApiCallback<ResultsResponse> _callback) throws ApiException {
+    public okhttp3.Call resultadosPostAsync(String nombreUsuario, Integer tok, final ApiCallback<ResultsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = resultadosPostValidateBeforeCall(nombreUsuario, tok, _callback);
         Type localVarReturnType = new TypeToken<ResultsResponse>(){}.getType();

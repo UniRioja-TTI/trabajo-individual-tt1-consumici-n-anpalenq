@@ -11,7 +11,7 @@
  */
 
 
-package org.openapitools.client.model;
+package utilidades.model;
 
 import java.util.Objects;
 import com.google.gson.TypeAdapter;
