@@ -17,24 +17,19 @@ import java.util.Objects;
 import java.io.IOException;
 import java.util.Arrays;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
+
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonWriter;
 
 import utilidades.client.JSON;
@@ -42,22 +37,20 @@ import utilidades.client.JSON;
 /**
  * EmailResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T12:30:21.258644+01:00[Europe/Berlin]", comments = "Generator version: 7.20.0")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T12:30:21.258644+01:00[Europe/Berlin]", comments = "Generator version: 7.20.0")
 public class EmailResponse {
   public static final String SERIALIZED_NAME_DONE = "done";
   @SerializedName(SERIALIZED_NAME_DONE)
-  @javax.annotation.Nullable
   private Boolean done;
 
   public static final String SERIALIZED_NAME_ERROR_MESSAGE = "errorMessage";
   @SerializedName(SERIALIZED_NAME_ERROR_MESSAGE)
-  @javax.annotation.Nullable
   private String errorMessage;
 
   public EmailResponse() {
   }
 
-  public EmailResponse done(@javax.annotation.Nullable Boolean done) {
+  public EmailResponse done(Boolean done) {
     this.done = done;
     return this;
   }
@@ -66,17 +59,16 @@ public class EmailResponse {
    * Get done
    * @return done
    */
-  @javax.annotation.Nullable
   public Boolean getDone() {
     return done;
   }
 
-  public void setDone(@javax.annotation.Nullable Boolean done) {
+  public void setDone(Boolean done) {
     this.done = done;
   }
 
 
-  public EmailResponse errorMessage(@javax.annotation.Nullable String errorMessage) {
+  public EmailResponse errorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
     return this;
   }
@@ -85,12 +77,11 @@ public class EmailResponse {
    * Get errorMessage
    * @return errorMessage
    */
-  @javax.annotation.Nullable
   public String getErrorMessage() {
     return errorMessage;
   }
 
-  public void setErrorMessage(@javax.annotation.Nullable String errorMessage) {
+  public void setErrorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
   }
 
@@ -109,20 +100,9 @@ public class EmailResponse {
         Objects.equals(this.errorMessage, emailResponse.errorMessage);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(done, errorMessage);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
