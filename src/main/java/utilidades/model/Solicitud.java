@@ -13,60 +13,44 @@
 
 package utilidades.model;
 
-import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
 import utilidades.client.JSON;
 
 /**
  * Solicitud
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T12:30:21.258644+01:00[Europe/Berlin]", comments = "Generator version: 7.20.0")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T12:30:21.258644+01:00[Europe/Berlin]", comments = "Generator version: 7.20.0")
 public class Solicitud {
   public static final String SERIALIZED_NAME_CANTIDADES_INICIALES = "cantidadesIniciales";
   @SerializedName(SERIALIZED_NAME_CANTIDADES_INICIALES)
-  @javax.annotation.Nullable
   private List<Integer> cantidadesIniciales;
 
   public static final String SERIALIZED_NAME_NOMBRE_ENTIDADES = "nombreEntidades";
   @SerializedName(SERIALIZED_NAME_NOMBRE_ENTIDADES)
-  @javax.annotation.Nullable
   private List<String> nombreEntidades;
 
   public Solicitud() {
   }
 
-  public Solicitud cantidadesIniciales(@javax.annotation.Nullable List<Integer> cantidadesIniciales) {
+  public Solicitud cantidadesIniciales(List<Integer> cantidadesIniciales) {
     this.cantidadesIniciales = cantidadesIniciales;
     return this;
   }
@@ -83,17 +67,16 @@ public class Solicitud {
    * Get cantidadesIniciales
    * @return cantidadesIniciales
    */
-  @javax.annotation.Nullable
   public List<Integer> getCantidadesIniciales() {
     return cantidadesIniciales;
   }
 
-  public void setCantidadesIniciales(@javax.annotation.Nullable List<Integer> cantidadesIniciales) {
+  public void setCantidadesIniciales(List<Integer> cantidadesIniciales) {
     this.cantidadesIniciales = cantidadesIniciales;
   }
 
 
-  public Solicitud nombreEntidades(@javax.annotation.Nullable List<String> nombreEntidades) {
+  public Solicitud nombreEntidades(List<String> nombreEntidades) {
     this.nombreEntidades = nombreEntidades;
     return this;
   }
@@ -110,12 +93,11 @@ public class Solicitud {
    * Get nombreEntidades
    * @return nombreEntidades
    */
-  @javax.annotation.Nullable
   public List<String> getNombreEntidades() {
     return nombreEntidades;
   }
 
-  public void setNombreEntidades(@javax.annotation.Nullable List<String> nombreEntidades) {
+  public void setNombreEntidades(List<String> nombreEntidades) {
     this.nombreEntidades = nombreEntidades;
   }
 
@@ -134,20 +116,9 @@ public class Solicitud {
         Objects.equals(this.nombreEntidades, solicitud.nombreEntidades);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(cantidadesIniciales, nombreEntidades);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
